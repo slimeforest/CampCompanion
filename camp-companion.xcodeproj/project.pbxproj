@@ -22,6 +22,8 @@
 		C3A2F68D289EFDA600EA3213 /* SpringsComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F68C289EFDA600EA3213 /* SpringsComponentViewController.swift */; };
 		C3A2F68F289EFDBC00EA3213 /* MapsComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F68E289EFDBC00EA3213 /* MapsComponentViewController.swift */; };
 		C3A2F691289EFE0700EA3213 /* TestComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */; };
+		C3A2F694289F17D300EA3213 /* GearComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */; };
+		C3A2F696289F1C8D00EA3213 /* GearItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F695289F1C8D00EA3213 /* GearItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		C3A2F68C289EFDA600EA3213 /* SpringsComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringsComponentViewController.swift; sourceTree = "<group>"; };
 		C3A2F68E289EFDBC00EA3213 /* MapsComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsComponentViewController.swift; sourceTree = "<group>"; };
 		C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestComponentViewController.swift; sourceTree = "<group>"; };
+		C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearComponentTableViewCell.swift; sourceTree = "<group>"; };
+		C3A2F695289F1C8D00EA3213 /* GearItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,15 @@
 			path = ComponentViewControllers;
 			sourceTree = "<group>";
 		};
+		C3A2F697289F1D7A00EA3213 /* Gear Component Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */,
+				C3A2F695289F1C8D00EA3213 /* GearItem.swift */,
+			);
+			path = "Gear Component Models";
+			sourceTree = "<group>";
+		};
 		C3E9A3B4288F47B800DF42B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +135,7 @@
 			children = (
 				C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */,
 				C34DEB432891E5C1002301FA /* Component.swift */,
+				C3A2F697289F1D7A00EA3213 /* Gear Component Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,10 +218,12 @@
 				C3A2F68F289EFDBC00EA3213 /* MapsComponentViewController.swift in Sources */,
 				C34775C8288F42DC00E68579 /* AppDelegate.swift in Sources */,
 				C34775CA288F42DC00E68579 /* SceneDelegate.swift in Sources */,
+				C3A2F696289F1C8D00EA3213 /* GearItem.swift in Sources */,
 				C3A2F689289EF97800EA3213 /* WeatherComponentViewController.swift in Sources */,
 				C34DEB422891E24C002301FA /* ComponentCollectionViewCell.swift in Sources */,
 				C34775D2288F42DC00E68579 /* camp_companion.xcdatamodeld in Sources */,
 				C34DEB442891E5C1002301FA /* Component.swift in Sources */,
+				C3A2F694289F17D300EA3213 /* GearComponentTableViewCell.swift in Sources */,
 				C3A2F68D289EFDA600EA3213 /* SpringsComponentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

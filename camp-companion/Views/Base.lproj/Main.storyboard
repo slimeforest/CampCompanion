@@ -371,7 +371,7 @@
                                 <rect key="frame" x="0.0" y="178" width="390" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="eDK-YY-wnx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="200" id="eDK-YY-wnx" customClass="GearComponentTableViewCell" customModule="camp_companion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eDK-YY-wnx" id="hu8-dJ-Xeq">
@@ -389,6 +389,9 @@
                                                                 </imageView>
                                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dfM-e4-YnF">
                                                                     <rect key="frame" x="17" y="138" width="94" height="32"/>
+                                                                    <connections>
+                                                                        <action selector="stepperPressed:" destination="eDK-YY-wnx" eventType="touchUpInside" id="e7Q-SD-uma"/>
+                                                                    </connections>
                                                                 </stepper>
                                                             </subviews>
                                                             <constraints>
@@ -516,6 +519,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="eej-Gd-0Fb" secondAttribute="trailing" constant="5" id="hxz-pV-oXR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImage" destination="lnY-mH-Jns" id="aDM-ik-gPb"/>
+                                            <outlet property="itemName" destination="azT-ws-yNh" id="bdp-ek-1Hu"/>
+                                            <outlet property="itemNotes" destination="bMm-Hw-r4e" id="Kyl-jF-UBC"/>
+                                            <outlet property="itemQuanity" destination="61h-B5-Yzn" id="frc-ei-t3y"/>
+                                            <outlet property="itemWeight1" destination="Irs-42-f5O" id="2r4-Q7-Bqe"/>
+                                            <outlet property="itemWeight2" destination="0NU-Nx-40j" id="LlZ-AD-Hza"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -532,7 +543,13 @@
                             <constraint firstItem="avd-ne-9vF" firstAttribute="leading" secondItem="mTJ-7w-p8v" secondAttribute="leading" id="uCw-Rb-Uvn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aRU-lE-kyi"/>
+                    <navigationItem key="navigationItem" id="aRU-lE-kyi">
+                        <barButtonItem key="rightBarButtonItem" title="Add Item" image="plus" catalog="system" id="hrK-XR-htY">
+                            <connections>
+                                <action selector="addItemPressed:" destination="pMH-UC-BMH" id="lxJ-Uq-fY8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gearTableView" destination="avd-ne-9vF" id="qy2-Mc-zwD"/>
                     </connections>
@@ -587,6 +604,7 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
