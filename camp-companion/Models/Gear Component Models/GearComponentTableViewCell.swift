@@ -11,6 +11,10 @@ class GearComponentTableViewCell: UITableViewCell {
     
     // Image
     @IBOutlet weak var itemImage: UIImageView!
+    @IBAction func imagePressed (_ sender: UIImageView!) {
+        print("ImageView Pressed.")
+    }
+    
     // Name
     @IBOutlet weak var itemName: UILabel!
     // Weight
