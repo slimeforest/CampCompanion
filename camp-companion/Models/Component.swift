@@ -11,10 +11,12 @@ import UIKit
 class Component{
     let title: String
     let image: UIImage
+    let segueName: String
     
-    init(componentName: String, componentImage: UIImage) {
+    init(componentName: String, componentImage: UIImage, segue: String) {
         title = componentName
         image = componentImage
+        segueName = segue
     }
 }
 

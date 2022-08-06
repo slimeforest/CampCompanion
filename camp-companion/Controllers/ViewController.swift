@@ -13,11 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var componentCollectionView: UICollectionView!
     
     let componentArray: [Component] = [
-        Component(componentName: "Gear", componentImage: UIImage(systemName: "bag.fill")!),
-        Component(componentName: "Compass", componentImage: UIImage(systemName: "safari.fill")!),
-        Component(componentName: "Maps", componentImage: UIImage(systemName: "map.fill")!),
-        Component(componentName: "Springs", componentImage: UIImage(systemName: "humidity.fill")!),
-        Component(componentName: "Weather", componentImage: UIImage(systemName: "cloud.sun.fill")!)
+        Component(componentName: "Gear", componentImage: UIImage(systemName: "bag.fill")!, segue: "gearComponentSegue"),
+        Component(componentName: "Compass", componentImage: UIImage(systemName: "safari.fill")!, segue: "compassComponentSegue"),
+        Component(componentName: "Maps", componentImage: UIImage(systemName: "map.fill")!, segue: "mapComponentSegue"),
+        Component(componentName: "Springs", componentImage: UIImage(systemName: "humidity.fill")!, segue: "springsComponenViewController"),
+        Component(componentName: "Weather", componentImage: UIImage(systemName: "cloud.sun.fill")!, segue: "weatherComponentSegue"),
+        Component(componentName: "Another Test Component", componentImage: UIImage(systemName: "gear")!, segue: "testComponentSegue")
     ]
     
     
@@ -58,10 +59,36 @@ extension ViewController: UICollectionViewDataSource{
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
+        
+        var columns: CGFloat = 2
+        
+        let spacing: CGFloat = 5
+        let totalHorizontalSpacing = (columns - 1) * spacing
+        
+        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
+        let itemSize = CGSize(width: itemWidth, height: itemWidth * 1.1)
+        
+        return itemSize
+        
+        
+//        return CGSize(width: 200, height: 200)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected item: \(componentArray[indexPath.row].title)")
+        
+        performSegue(withIdentifier: "\(componentArray[indexPath.row].segueName)", sender: self)
     }
+    
 }

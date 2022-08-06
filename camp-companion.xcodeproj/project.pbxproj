@@ -16,6 +16,12 @@
 		C34775D7288F42E200E68579 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34775D5288F42E200E68579 /* LaunchScreen.storyboard */; };
 		C34DEB422891E24C002301FA /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */; };
 		C34DEB442891E5C1002301FA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34DEB432891E5C1002301FA /* Component.swift */; };
+		C3A2F687289EF5E800EA3213 /* GearComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F686289EF5E800EA3213 /* GearComponentViewController.swift */; };
+		C3A2F689289EF97800EA3213 /* WeatherComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F688289EF97800EA3213 /* WeatherComponentViewController.swift */; };
+		C3A2F68B289EFD7200EA3213 /* CompassComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F68A289EFD7200EA3213 /* CompassComponentViewController.swift */; };
+		C3A2F68D289EFDA600EA3213 /* SpringsComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F68C289EFDA600EA3213 /* SpringsComponentViewController.swift */; };
+		C3A2F68F289EFDBC00EA3213 /* MapsComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F68E289EFDBC00EA3213 /* MapsComponentViewController.swift */; };
+		C3A2F691289EFE0700EA3213 /* TestComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		C34775D8288F42E200E68579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
 		C34DEB432891E5C1002301FA /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		C3A2F686289EF5E800EA3213 /* GearComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearComponentViewController.swift; sourceTree = "<group>"; };
+		C3A2F688289EF97800EA3213 /* WeatherComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherComponentViewController.swift; sourceTree = "<group>"; };
+		C3A2F68A289EFD7200EA3213 /* CompassComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassComponentViewController.swift; sourceTree = "<group>"; };
+		C3A2F68C289EFDA600EA3213 /* SpringsComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringsComponentViewController.swift; sourceTree = "<group>"; };
+		C3A2F68E289EFDBC00EA3213 /* MapsComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsComponentViewController.swift; sourceTree = "<group>"; };
+		C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestComponentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,19 @@
 			path = "camp-companion";
 			sourceTree = "<group>";
 		};
+		C3A2F692289EFE9100EA3213 /* ComponentViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3A2F68A289EFD7200EA3213 /* CompassComponentViewController.swift */,
+				C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */,
+				C3A2F686289EF5E800EA3213 /* GearComponentViewController.swift */,
+				C3A2F688289EF97800EA3213 /* WeatherComponentViewController.swift */,
+				C3A2F68C289EFDA600EA3213 /* SpringsComponentViewController.swift */,
+				C3A2F68E289EFDBC00EA3213 /* MapsComponentViewController.swift */,
+			);
+			path = ComponentViewControllers;
+			sourceTree = "<group>";
+		};
 		C3E9A3B4288F47B800DF42B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C34775CB288F42DC00E68579 /* ViewController.swift */,
+				C3A2F692289EFE9100EA3213 /* ComponentViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,12 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A2F68B289EFD7200EA3213 /* CompassComponentViewController.swift in Sources */,
+				C3A2F687289EF5E800EA3213 /* GearComponentViewController.swift in Sources */,
+				C3A2F691289EFE0700EA3213 /* TestComponentViewController.swift in Sources */,
 				C34775CC288F42DC00E68579 /* ViewController.swift in Sources */,
+				C3A2F68F289EFDBC00EA3213 /* MapsComponentViewController.swift in Sources */,
 				C34775C8288F42DC00E68579 /* AppDelegate.swift in Sources */,
 				C34775CA288F42DC00E68579 /* SceneDelegate.swift in Sources */,
+				C3A2F689289EF97800EA3213 /* WeatherComponentViewController.swift in Sources */,
 				C34DEB422891E24C002301FA /* ComponentCollectionViewCell.swift in Sources */,
 				C34775D2288F42DC00E68579 /* camp_companion.xcdatamodeld in Sources */,
 				C34DEB442891E5C1002301FA /* Component.swift in Sources */,
+				C3A2F68D289EFDA600EA3213 /* SpringsComponentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

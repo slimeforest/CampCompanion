@@ -66,7 +66,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bwW-ba-QSS" userLabel="component collection">
                                 <rect key="frame" x="20" y="136.66666666666663" width="350" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wlS-nF-na0">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wlS-nF-na0">
                                     <size key="itemSize" width="153" height="192"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -80,7 +80,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="153" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVv-Sm-tC6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVv-Sm-tC6">
                                                     <rect key="frame" x="5" y="161.66666666666666" width="143" height="20.333333333333343"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.333333333333343" id="Uj0-9w-iZC"/>
@@ -169,11 +169,172 @@
                         <outlet property="componentCollectionView" destination="bwW-ba-QSS" id="DHa-Jo-2QO"/>
                         <outlet property="label1Value" destination="iTe-hH-Odx" id="5Rs-Fr-YUE"/>
                         <outlet property="label2Value" destination="pom-IK-kMr" id="tuW-TT-cCD"/>
+                        <segue destination="TZu-2b-yLb" kind="show" identifier="weatherComponentSegue" id="xWd-14-3Rt"/>
+                        <segue destination="pMH-UC-BMH" kind="show" identifier="gearComponentSegue" id="RNs-hl-N8y"/>
+                        <segue destination="ooa-yS-Xme" kind="show" identifier="compassComponentSegue" id="VST-Ig-sEx"/>
+                        <segue destination="8q3-Xb-0hU" kind="show" identifier="mapComponentSegue" id="ZAB-MM-ZjI"/>
+                        <segue destination="TwE-c7-v8b" kind="show" identifier="springsComponenViewController" id="WOf-MV-vNn"/>
+                        <segue destination="qnK-fv-ifb" kind="show" identifier="testComponentSegue" id="bmM-Ty-iLy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966.15384615384608" y="3.5545023696682461"/>
+            <point key="canvasLocation" x="-1172" y="4"/>
+        </scene>
+        <!--Maps Component View Controller-->
+        <scene sceneID="rf4-dD-ZeB">
+            <objects>
+                <viewController id="8q3-Xb-0hU" customClass="MapsComponentViewController" customModule="camp_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6bd-Np-Rq6">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map ViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqs-th-MS9">
+                                <rect key="frame" x="16" y="88" width="358" height="722"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="B82-Eg-e3E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5Za-rR-d0S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1l8-Dj-dc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069.2307692307691" y="211.84834123222748"/>
+        </scene>
+        <!--Test Component View Controller-->
+        <scene sceneID="xkz-0J-Iya">
+            <objects>
+                <viewController id="qnK-fv-ifb" customClass="TestComponentViewController" customModule="camp_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7s1-VO-aan">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test ViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-e9-g9K">
+                                <rect key="frame" x="16" y="88" width="358" height="722"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4As-TO-Ix7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DMd-ky-YdP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M44-c2-xb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2067.6923076923076" y="2496.6824644549761"/>
+        </scene>
+        <!--Springs Component View Controller-->
+        <scene sceneID="qNA-iz-MjP">
+            <objects>
+                <viewController id="TwE-c7-v8b" customClass="SpringsComponentViewController" customModule="camp_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bgB-Vh-luy">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Springs ViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2e-dK-cEj">
+                                <rect key="frame" x="16" y="88" width="358" height="722"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EWC-ET-Q0l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mK2-Fs-OKY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10u-e7-FDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2076.9230769230767" y="1754.5023696682463"/>
+        </scene>
+        <!--Compass Component View Controller-->
+        <scene sceneID="jmr-zj-2Hw">
+            <objects>
+                <viewController id="ooa-yS-Xme" customClass="CompassComponentViewController" customModule="camp_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aC7-db-bKO">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Compass ViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeT-0n-FfQ">
+                                <rect key="frame" x="16" y="88" width="358" height="722"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lZF-fS-kEb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tmh-IY-5Gx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksj-ty-RPF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077" y="-486"/>
+        </scene>
+        <!--Gear Component View Controller-->
+        <scene sceneID="U9o-mi-kxF">
+            <objects>
+                <viewController id="pMH-UC-BMH" customClass="GearComponentViewController" customModule="camp_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HXc-Pf-98W">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gear View Controller" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-DO-ygn">
+                                <rect key="frame" x="16" y="88" width="358" height="722"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mTJ-7w-p8v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vX6-DO-ygn" firstAttribute="trailing" secondItem="HXc-Pf-98W" secondAttribute="trailingMargin" id="BLL-4X-ghV"/>
+                            <constraint firstItem="vX6-DO-ygn" firstAttribute="leading" secondItem="HXc-Pf-98W" secondAttribute="leadingMargin" id="oWc-WA-ndR"/>
+                            <constraint firstItem="vX6-DO-ygn" firstAttribute="bottom" secondItem="mTJ-7w-p8v" secondAttribute="bottom" id="pF6-vv-DPR"/>
+                            <constraint firstItem="vX6-DO-ygn" firstAttribute="top" secondItem="mTJ-7w-p8v" secondAttribute="top" id="wBf-iJ-qfP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aRU-lE-kyi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ef-hH-Q68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077" y="-1159"/>
+        </scene>
+        <!--Weather Component View Controller-->
+        <scene sceneID="VAI-SG-bll">
+            <objects>
+                <viewController id="TZu-2b-yLb" customClass="WeatherComponentViewController" customModule="camp_companion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="beT-Z2-7Hj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather Component ViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wN4-qM-DY7">
+                                <rect key="frame" x="16" y="44" width="358" height="766"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xRA-UN-saN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FKd-Yb-54r"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1W-Vm-nDq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069" y="954"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0hw-En-5ke">
@@ -191,7 +352,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOI-JD-WfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36.92307692307692" y="3.5545023696682461"/>
+            <point key="canvasLocation" x="-2312" y="4"/>
         </scene>
     </scenes>
     <resources>
