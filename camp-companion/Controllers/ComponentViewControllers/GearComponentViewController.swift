@@ -9,6 +9,8 @@ import UIKit
 
 class GearComponentViewController: UIViewController {
 
+    @IBOutlet weak var gearTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Gear Component View Controller successfully loaded.")

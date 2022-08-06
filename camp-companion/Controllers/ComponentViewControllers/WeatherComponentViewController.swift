@@ -11,7 +11,7 @@ class WeatherComponentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Gear Component View Controller successfully loaded.")
+        print("Weather Component View Controller successfully loaded.")
         // Do any additional setup after loading the view.
     }
     
