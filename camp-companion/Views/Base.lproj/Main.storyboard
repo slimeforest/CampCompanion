@@ -437,16 +437,16 @@
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-ha-cxl" userLabel="Weight Value Stack">
                                                                                     <rect key="frame" x="0.0" y="30" width="109" height="20.333333333333329"/>
                                                                                     <subviews>
-                                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fPg-72-YuU" userLabel="Weight Value 1 Stack">
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fPg-72-YuU" userLabel="Weight Value 1 Stack">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="60.666666666666664" height="20.333333333333332"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="420" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irs-42-f5O">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="420" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irs-42-f5O">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="41" height="20.333333333333332"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="oz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkf-Ii-FUq">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkf-Ii-FUq">
                                                                                                     <rect key="frame" x="49" y="0.0" width="11.666666666666664" height="20.333333333333332"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                                                     <nil key="textColor"/>
@@ -454,16 +454,16 @@
                                                                                                 </label>
                                                                                             </subviews>
                                                                                         </stackView>
-                                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="55Q-er-Hbg" userLabel="Weight Value 2 Stack">
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="55Q-er-Hbg" userLabel="Weight Value 2 Stack">
                                                                                             <rect key="frame" x="73.666666666666657" y="0.0" width="35.333333333333343" height="20.333333333333332"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="69" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-Nx-40j">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-Nx-40j">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20.333333333333332"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-5H-7RK">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-5H-7RK">
                                                                                                     <rect key="frame" x="28.999999999999996" y="0.0" width="6.3333333333333321" height="20.333333333333332"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                                                     <nil key="textColor"/>
@@ -472,6 +472,9 @@
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                     </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="55Q-er-Hbg" firstAttribute="leading" secondItem="gaG-ha-cxl" secondAttribute="leading" constant="73.666666666666657" id="nga-5c-2d5"/>
+                                                                                    </constraints>
                                                                                 </stackView>
                                                                             </subviews>
                                                                         </stackView>
@@ -532,7 +535,7 @@
                                             <outlet property="itemImage" destination="lnY-mH-Jns" id="aDM-ik-gPb"/>
                                             <outlet property="itemName" destination="azT-ws-yNh" id="bdp-ek-1Hu"/>
                                             <outlet property="itemNotes" destination="bMm-Hw-r4e" id="Kyl-jF-UBC"/>
-                                            <outlet property="itemQuanity" destination="61h-B5-Yzn" id="frc-ei-t3y"/>
+                                            <outlet property="itemQuanity" destination="61h-B5-Yzn" id="Zbm-ai-K5E"/>
                                             <outlet property="itemWeight1" destination="Irs-42-f5O" id="2r4-Q7-Bqe"/>
                                             <outlet property="itemWeight2" destination="0NU-Nx-40j" id="LlZ-AD-Hza"/>
                                         </connections>
@@ -561,6 +564,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gearTableView" destination="avd-ne-9vF" id="qy2-Mc-zwD"/>
+                        <outlet property="totalCountLabelOutlet" destination="iCQ-W6-cr5" id="KU0-uX-F6j"/>
+                        <outlet property="weight1LabelOutlet" destination="80I-ub-ko7" id="1ug-Rr-UxQ"/>
+                        <outlet property="weight2LabelOutlet" destination="b8n-5e-2tN" id="HDu-Gn-q0A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ef-hH-Q68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

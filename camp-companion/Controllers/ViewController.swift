@@ -10,6 +10,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var label1Value: UILabel!
     @IBOutlet weak var label2Value: UILabel!
     
+    
+    
     @IBOutlet weak var componentCollectionView: UICollectionView!
     
     let componentArray: [Component] = [

@@ -11,13 +11,21 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
     
     // Data Source
     var itemArray: [GearItem] = []
-    //    var itemArray: [GearItem] = [
-    //        GearItem(itemName: "Water Bottle", itemImage: UIImage(systemName: "plus")!, itemWeight1: 420, itemWeight2: 69, itemQuanity: 710, itemNotes: "This is a test item. Here are some words to go with it."),
-    //        GearItem(itemName: "1 Gram Joints", itemImage: UIImage(systemName: "plus")!, itemWeight1: 0, itemWeight2: 1, itemQuanity: 15, itemNotes: "Blaze up!"),
-    //        GearItem(itemName: "Sleeping Bag", itemImage: UIImage(systemName: "plus")!, itemWeight1: 645, itemWeight2: 12, itemQuanity: 1, itemNotes: "Goes down to 30 degrees C.")]
+    var totalWeight1: Int = 0
+    var totalWeight2: Int = 0
+    var totalItems: Int = 0
+    
+    // Weight Label Outlets
+    @IBOutlet weak var weight1LabelOutlet: UILabel!
+    @IBOutlet weak var weight2LabelOutlet: UILabel!
+    
+    // Item Count Label Outlet
+    
+    @IBOutlet weak var totalCountLabelOutlet: UILabel!
     
     // TableView Outlet
     @IBOutlet weak var gearTableView: UITableView!
+    
     // Bar Button Item
     @IBAction func addItemPressed(_ sender: Any) {
         presentAlert()
@@ -28,10 +36,49 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         gearTableView.dataSource = self
         print("Gear Component View Controller successfully loaded.")
+        
+        updateUI()
         // Do any additional setup after loading the view.
     }
     
-    //MARK: - TableView protocol functions
+    //MARK: - UI Updater
+    func updateUI() {
+        addTotalWeight()
+        addAllItems()
+    }
+    
+    // Adding Total Weight
+    func addTotalWeight() {
+        var addedWeight1: Int = 0
+        var addedWeight2: Int = 0
+        
+        for item in itemArray {
+            addedWeight1 += item.weight1 * item.quanity
+            addedWeight2 += item.weight2 * item.quanity
+        }
+        
+        totalWeight1 = addedWeight1
+        totalWeight2 = addedWeight2
+        
+        weight1LabelOutlet.text = String("\(totalWeight1)")
+        weight2LabelOutlet.text = String("\(totalWeight2)")
+    }
+    
+    // Adding Item Count
+    func addAllItems() {
+        var addedValue: Int = 0
+        
+        for item in itemArray {
+            addedValue += item.quanity
+        }
+        totalItems = addedValue
+    
+        totalCountLabelOutlet.text = String("\(totalItems)")
+        print("Total items: \(totalItems)")
+    }
+    
+    
+    //MARK: - TableView Protocol Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
@@ -47,13 +94,10 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-    
-    
+
     //MARK: - Alert
     func presentAlert() {
-        let alertController = UIAlertController(title: "Add Item",
-                                                message: "Enter item info here",
-                                                preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add Item", message: "Enter item info here", preferredStyle: .alert)
         
         // AlertController Textfields
         alertController.addTextField { (textField) in
@@ -84,17 +128,19 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
                let userItemWeight1 = textFields[1].text,
                let userItemWeight2 = textFields[2].text,
                let userItemQuanity = textFields[3].text,
-               let userItemNotes = textFields[4].text{
+               let userItemNotes = textFields[4].text {
+                
                 print("Name: \(userItemName)")
                 print("Item Weight 1: \(userItemWeight1)")
                 print("Item Weight 2: \(userItemWeight2)")
                 print("Item Quanity: \(userItemQuanity)")
                 print("Item Notes: \(userItemNotes)")
                 
-                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "plus")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuanity: Int(userItemQuanity) ?? 999, itemNotes: userItemNotes)
+                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuanity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes)
                 
                 self.itemArray.append(userSubmittedItem)
                 gearTableView.reloadData()
+                updateUI()
             }
         }
         
