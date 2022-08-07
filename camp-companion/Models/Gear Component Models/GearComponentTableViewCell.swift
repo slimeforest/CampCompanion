@@ -30,11 +30,9 @@ class GearComponentTableViewCell: UITableViewCell {
     @IBOutlet weak var itemQuanity: UILabel!
     @IBAction func stepperPressed (_ sender: UIStepper!){
         if (sender.value == 1) {
-            print("up and item: \(itemName.text!)");
             sender.value = 0
             delegate?.stepperWasPressed(didIncrease: true, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
         } else if (sender.value == -1) {
-            print("down and item: \(itemName.text!)");
             sender.value = 0
             delegate?.stepperWasPressed(didIncrease: false, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
         }

@@ -41,7 +41,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         print("Gear Component View Controller successfully loaded.")
         
         updateUI()
-        // Do any additional setup after loading the view.
     }
     
     //MARK: - UI Updater
@@ -78,10 +77,9 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         totalItems = addedValue
         
         totalCountLabelOutlet.text = String("\(totalItems)")
-        print("Total items: \(totalItems)")
     }
     
-   
+    
     
     
     //MARK: - Alert
@@ -142,12 +140,13 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
                      animated: true)
     }
     
-    //MARK: - TableView Protocol Functions
+    //MARK: - TableView and Cell creation/handling
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = gearTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearComponentTableViewCell
         cell.itemName.text = itemArray[indexPath.row].name
         cell.itemImage.image = itemArray[indexPath.row].image
@@ -155,14 +154,17 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         cell.itemWeight2.text = String("\(itemArray[indexPath.row].weight2)")
         cell.itemQuanity.text = String("\(itemArray[indexPath.row].quantity)")
         cell.itemNotes.text = itemArray[indexPath.row].notes
-        
-        cell.delegate = self
         cell.tableViewCellPosition = indexPath.row
+        cell.delegate = self
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        cell.itemImage.addGestureRecognizer(tapGR)
+        cell.itemImage.isUserInteractionEnabled = true
         
         return cell
     }
     
-    //MARK: - Swipeable TableViewCell
+    //MARK: - Swiping and Tapping TableViewCell
     private func deleteItem(_ indexPath: IndexPath) {
         itemArray.remove(at: indexPath.row)
         gearTableView.reloadData()
@@ -179,12 +181,19 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
+    // Tapping on imageView
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            print("UIImageView tapped")
+        }
+    }
 }
 
+// Stepper Logic
 extension GearComponentViewController: Stepper {
     
     func stepperWasPressed(didIncrease: Bool, namePassed: String, userindexPath: Int) {
-        
         if didIncrease {
             arrayPosition = userindexPath
             itemArray[userindexPath].quantity += 1
