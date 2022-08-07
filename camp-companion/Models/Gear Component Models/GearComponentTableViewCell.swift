@@ -18,9 +18,11 @@ class GearComponentTableViewCell: UITableViewCell {
     
     // Name
     @IBOutlet weak var itemName: UILabel!
+    
     // Weight
     @IBOutlet weak var itemWeight1: UILabel!
     @IBOutlet weak var itemWeight2: UILabel!
+    
     // Quanity
     @IBOutlet weak var itemQuanity: UILabel!
     @IBAction func stepperPressed (_ sender: UIStepper!){
@@ -34,13 +36,7 @@ class GearComponentTableViewCell: UITableViewCell {
             
         }
     }
+    
     // Notes
     @IBOutlet weak var itemNotes: UILabel!
-
-
-
-    
-    
-    
-
 }

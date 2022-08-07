@@ -73,7 +73,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
             addedValue += item.quanity
         }
         totalItems = addedValue
-    
+        
         totalCountLabelOutlet.text = String("\(totalItems)")
         print("Total items: \(totalItems)")
     }
@@ -111,8 +111,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         // AlertController Actions
-        let continueAction = UIAlertAction(title: "Add",
-                                           style: .default) { [self, weak alertController] _ in
+        let continueAction = UIAlertAction(title: "Add", style: .default) { [self, weak alertController] _ in
             guard let textFields = alertController?.textFields else { return }
             
             if let userItemName = textFields[0].text,
@@ -144,7 +143,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         self.present(alertController,
                      animated: true)
     }
-
+    
     //MARK: - TableView Protocol Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
@@ -161,8 +160,8 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         
         return cell
     }
-
-//MARK: - Swipeable TableViewCell
+    
+    //MARK: - Swipeable TableViewCell
     private func deleteItem(_ indexPath: IndexPath) {
         itemArray.remove(at: indexPath.row)
         gearTableView.reloadData()
@@ -171,10 +170,9 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .normal,
-                                        title: "Delete") { [weak self] (action, view, completionHandler) in
+        let action = UIContextualAction(style: .normal, title: "Delete") { [weak self] (action, view, completionHandler) in
             self?.deleteItem(indexPath)
-                                            completionHandler(true)
+            completionHandler(true)
         }
         action.backgroundColor = .systemRed
         
