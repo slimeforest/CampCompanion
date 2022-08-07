@@ -9,7 +9,9 @@ import UIKit
 
 class GearComponentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // Data Source
+    var arrayPosition: Int = 0
+    
+    // Data Sources
     var itemArray: [GearItem] = []
     var totalWeight1: Int = 0
     var totalWeight2: Int = 0
@@ -54,8 +56,8 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         var addedWeight2: Int = 0
         
         for item in itemArray {
-            addedWeight1 += item.weight1 * item.quanity
-            addedWeight2 += item.weight2 * item.quanity
+            addedWeight1 += item.weight1 * item.quantity
+            addedWeight2 += item.weight2 * item.quantity
         }
         
         totalWeight1 = addedWeight1
@@ -70,7 +72,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         var addedValue: Int = 0
         
         for item in itemArray {
-            addedValue += item.quanity
+            addedValue += item.quantity
         }
         totalItems = addedValue
         
@@ -78,12 +80,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         print("Total items: \(totalItems)")
     }
     
-    func increase() {
-        totalItems += 1
-    }
-    func decrease() {
-        totalItems -= 1
-    }
+   
     
     
     //MARK: - Alert
@@ -123,10 +120,10 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
                 print("Name: \(userItemName)")
                 print("Item Weight 1: \(userItemWeight1)")
                 print("Item Weight 2: \(userItemWeight2)")
-                print("Item Quanity: \(userItemQuanity)")
+                print("Item Quantity: \(userItemQuanity)")
                 print("Item Notes: \(userItemNotes)")
                 
-                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuanity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes ?? "")
+                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuantity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes ?? "", creationPosition: itemArray.count + 1)
                 
                 self.itemArray.append(userSubmittedItem)
                 gearTableView.reloadData()
@@ -155,8 +152,10 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         cell.itemImage.image = itemArray[indexPath.row].image
         cell.itemWeight1.text = String("\(itemArray[indexPath.row].weight1)")
         cell.itemWeight2.text = String("\(itemArray[indexPath.row].weight2)")
-        cell.itemQuanity.text = String("\(itemArray[indexPath.row].quanity)")
+        cell.itemQuanity.text = String("\(itemArray[indexPath.row].quantity)")
         cell.itemNotes.text = itemArray[indexPath.row].notes
+        
+        cell.tableViewCellPosition = indexPath.row
         
         return cell
     }
@@ -181,3 +180,32 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     }
 }
 
+extension GearComponentViewController: Stepper {
+    
+    func refreshTableViewCell() {
+        print("arrayPosition: \(arrayPosition)")
+//        itemArray[arrayPosition].quantity += 1
+//        gearTableView.reloadData()
+    }
+    
+    
+    
+    func stepperWasPressed(didIncrease: Bool, namePassed: String, userindexPath: Int) {
+        
+        if didIncrease {
+            arrayPosition = userindexPath
+            print("arrayPosition: \(arrayPosition)")
+//            itemArray[userindexPath].quanity += 1
+            print("userindexPath: \(userindexPath) -- namePassed: \(namePassed) -- didIncrease: \(didIncrease)")
+            print("increase selected")
+            refreshTableViewCell()
+        }else {
+            arrayPosition = userindexPath
+            print("arrayPosition: \(arrayPosition)")
+//            itemArray[userindexPath].quanity -= 1
+            print("userindexPath: \(userindexPath) -- namePassed: \(namePassed) -- didIncrease: \(didIncrease)")
+            print("decrease selected")
+            refreshTableViewCell()
+        }
+    }
+}

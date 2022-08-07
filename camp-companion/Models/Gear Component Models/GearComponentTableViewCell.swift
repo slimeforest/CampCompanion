@@ -9,6 +9,8 @@ import UIKit
 
 class GearComponentTableViewCell: UITableViewCell {
     
+    var mainVC = GearComponentViewController()
+    var tableViewCellPosition: Int! = nil
     
     // Image
     @IBOutlet weak var itemImage: UIImageView!
@@ -27,13 +29,13 @@ class GearComponentTableViewCell: UITableViewCell {
     @IBOutlet weak var itemQuanity: UILabel!
     @IBAction func stepperPressed (_ sender: UIStepper!){
         if (sender.value == 1) {
-            print("up");
+            print("up and item: \(itemName.text!)");
             sender.value = 0
-            
+            mainVC.stepperWasPressed(didIncrease: true, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
         } else if (sender.value == -1) {
-            print("down")
+            print("down and item: \(itemName.text!)");
             sender.value = 0
-            
+            mainVC.stepperWasPressed(didIncrease: false, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
         }
     }
     

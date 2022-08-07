@@ -24,6 +24,7 @@
 		C3A2F691289EFE0700EA3213 /* TestComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */; };
 		C3A2F694289F17D300EA3213 /* GearComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */; };
 		C3A2F696289F1C8D00EA3213 /* GearItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F695289F1C8D00EA3213 /* GearItem.swift */; };
+		C3C74AE0289F5DB900CF0B46 /* StepperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestComponentViewController.swift; sourceTree = "<group>"; };
 		C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearComponentTableViewCell.swift; sourceTree = "<group>"; };
 		C3A2F695289F1C8D00EA3213 /* GearItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearItem.swift; sourceTree = "<group>"; };
+		C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */,
 				C34DEB432891E5C1002301FA /* Component.swift */,
+				C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */,
 				C3A2F697289F1D7A00EA3213 /* Gear Component Models */,
 			);
 			path = Models;
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C74AE0289F5DB900CF0B46 /* StepperProtocol.swift in Sources */,
 				C3A2F68B289EFD7200EA3213 /* CompassComponentViewController.swift in Sources */,
 				C3A2F687289EF5E800EA3213 /* GearComponentViewController.swift in Sources */,
 				C3A2F691289EFE0700EA3213 /* TestComponentViewController.swift in Sources */,
