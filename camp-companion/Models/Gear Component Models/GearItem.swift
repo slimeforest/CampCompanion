@@ -15,15 +15,13 @@ class GearItem{
     let weight2: Int
     var quantity: Int
     let notes: String
-    let arrayPosition: Int
     
-    init(itemName: String, itemImage: UIImage, itemWeight1: Int, itemWeight2: Int, itemQuantity: Int, itemNotes: String, creationPosition: Int) {
+    init(itemName: String, itemImage: UIImage, itemWeight1: Int, itemWeight2: Int, itemQuantity: Int, itemNotes: String) {
         name = itemName
         image = itemImage
         weight1 = itemWeight1
         weight2 = itemWeight2
         quantity = itemQuantity
         notes = itemNotes
-        arrayPosition = creationPosition
     }
 }

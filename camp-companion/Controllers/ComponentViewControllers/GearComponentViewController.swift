@@ -48,6 +48,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     func updateUI() {
         addTotalWeight()
         addAllItems()
+        gearTableView.reloadData()
     }
     
     // Adding Total Weight
@@ -123,7 +124,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
                 print("Item Quantity: \(userItemQuanity)")
                 print("Item Notes: \(userItemNotes)")
                 
-                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuantity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes ?? "", creationPosition: itemArray.count + 1)
+                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuantity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes ?? "")
                 
                 self.itemArray.append(userSubmittedItem)
                 gearTableView.reloadData()
@@ -155,6 +156,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         cell.itemQuanity.text = String("\(itemArray[indexPath.row].quantity)")
         cell.itemNotes.text = itemArray[indexPath.row].notes
         
+        cell.delegate = self
         cell.tableViewCellPosition = indexPath.row
         
         return cell
@@ -176,36 +178,21 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         action.backgroundColor = .systemRed
         
         return UISwipeActionsConfiguration(actions: [action])
-        
     }
 }
 
 extension GearComponentViewController: Stepper {
     
-    func refreshTableViewCell() {
-        print("arrayPosition: \(arrayPosition)")
-//        itemArray[arrayPosition].quantity += 1
-//        gearTableView.reloadData()
-    }
-    
-    
-    
     func stepperWasPressed(didIncrease: Bool, namePassed: String, userindexPath: Int) {
         
         if didIncrease {
             arrayPosition = userindexPath
-            print("arrayPosition: \(arrayPosition)")
-//            itemArray[userindexPath].quanity += 1
-            print("userindexPath: \(userindexPath) -- namePassed: \(namePassed) -- didIncrease: \(didIncrease)")
-            print("increase selected")
-            refreshTableViewCell()
+            itemArray[userindexPath].quantity += 1
+            updateUI()
         }else {
             arrayPosition = userindexPath
-            print("arrayPosition: \(arrayPosition)")
-//            itemArray[userindexPath].quanity -= 1
-            print("userindexPath: \(userindexPath) -- namePassed: \(namePassed) -- didIncrease: \(didIncrease)")
-            print("decrease selected")
-            refreshTableViewCell()
+            itemArray[userindexPath].quantity -= 1
+            updateUI()
         }
     }
 }

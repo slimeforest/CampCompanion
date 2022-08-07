@@ -9,7 +9,8 @@ import UIKit
 
 class GearComponentTableViewCell: UITableViewCell {
     
-    var mainVC = GearComponentViewController()
+    var delegate:Stepper?
+
     var tableViewCellPosition: Int! = nil
     
     // Image
@@ -31,11 +32,11 @@ class GearComponentTableViewCell: UITableViewCell {
         if (sender.value == 1) {
             print("up and item: \(itemName.text!)");
             sender.value = 0
-            mainVC.stepperWasPressed(didIncrease: true, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
+            delegate?.stepperWasPressed(didIncrease: true, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
         } else if (sender.value == -1) {
             print("down and item: \(itemName.text!)");
             sender.value = 0
-            mainVC.stepperWasPressed(didIncrease: false, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
+            delegate?.stepperWasPressed(didIncrease: false, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
         }
     }
     
