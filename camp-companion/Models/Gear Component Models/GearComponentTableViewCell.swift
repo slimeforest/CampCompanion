@@ -9,6 +9,7 @@ import UIKit
 
 class GearComponentTableViewCell: UITableViewCell {
     
+    
     // Image
     @IBOutlet weak var itemImage: UIImageView!
     @IBAction func imagePressed (_ sender: UIImageView!) {
@@ -22,8 +23,16 @@ class GearComponentTableViewCell: UITableViewCell {
     @IBOutlet weak var itemWeight2: UILabel!
     // Quanity
     @IBOutlet weak var itemQuanity: UILabel!
-    @IBAction func stepperPressed (_ sender: UIStepper!) {
-        print("stepper pressed")
+    @IBAction func stepperPressed (_ sender: UIStepper!){
+        if (sender.value == 1) {
+            print("up");
+            sender.value = 0
+            
+        } else if (sender.value == -1) {
+            print("down")
+            sender.value = 0
+            
+        }
     }
     // Notes
     @IBOutlet weak var itemNotes: UILabel!

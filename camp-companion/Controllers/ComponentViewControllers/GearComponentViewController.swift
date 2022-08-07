@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GearComponentViewController: UIViewController, UITableViewDataSource {
+class GearComponentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Data Source
     var itemArray: [GearItem] = []
@@ -35,6 +35,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         gearTableView.dataSource = self
+        gearTableView.delegate = self
         print("Gear Component View Controller successfully loaded.")
         
         updateUI()
@@ -64,7 +65,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
         weight2LabelOutlet.text = String("\(totalWeight2)")
     }
     
-    // Adding Item Count
+    // Item Count
     func addAllItems() {
         var addedValue: Int = 0
         
@@ -77,24 +78,14 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
         print("Total items: \(totalItems)")
     }
     
-    
-    //MARK: - TableView Protocol Functions
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemArray.count
+    func increase() {
+        totalItems += 1
+    }
+    func decrease() {
+        totalItems -= 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = gearTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearComponentTableViewCell
-        cell.itemName.text = itemArray[indexPath.row].name
-        cell.itemImage.image = itemArray[indexPath.row].image
-        cell.itemWeight1.text = String("\(itemArray[indexPath.row].weight1)")
-        cell.itemWeight2.text = String("\(itemArray[indexPath.row].weight2)")
-        cell.itemQuanity.text = String("\(itemArray[indexPath.row].quanity)")
-        cell.itemNotes.text = itemArray[indexPath.row].notes
-        
-        return cell
-    }
-
+    
     //MARK: - Alert
     func presentAlert() {
         let alertController = UIAlertController(title: "Add Item", message: "Enter item info here", preferredStyle: .alert)
@@ -136,7 +127,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
                 print("Item Quanity: \(userItemQuanity)")
                 print("Item Notes: \(userItemNotes)")
                 
-                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuanity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes)
+                let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuanity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes ?? "")
                 
                 self.itemArray.append(userSubmittedItem)
                 gearTableView.reloadData()
@@ -152,6 +143,43 @@ class GearComponentViewController: UIViewController, UITableViewDataSource {
         
         self.present(alertController,
                      animated: true)
+    }
+
+    //MARK: - TableView Protocol Functions
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = gearTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GearComponentTableViewCell
+        cell.itemName.text = itemArray[indexPath.row].name
+        cell.itemImage.image = itemArray[indexPath.row].image
+        cell.itemWeight1.text = String("\(itemArray[indexPath.row].weight1)")
+        cell.itemWeight2.text = String("\(itemArray[indexPath.row].weight2)")
+        cell.itemQuanity.text = String("\(itemArray[indexPath.row].quanity)")
+        cell.itemNotes.text = itemArray[indexPath.row].notes
+        
+        return cell
+    }
+
+//MARK: - Swipeable TableViewCell
+    private func deleteItem(_ indexPath: IndexPath) {
+        itemArray.remove(at: indexPath.row)
+        gearTableView.reloadData()
+        updateUI()
+        print("Item Deleted")
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Delete") { [weak self] (action, view, completionHandler) in
+            self?.deleteItem(indexPath)
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        
+        return UISwipeActionsConfiguration(actions: [action])
+        
     }
 }
 
