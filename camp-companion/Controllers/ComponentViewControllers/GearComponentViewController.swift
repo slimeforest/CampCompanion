@@ -184,10 +184,41 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     
     // Tapping on imageView
     @objc func imageTapped(sender: UITapGestureRecognizer) {
+        
         if sender.state == .ended {
-            print("UIImageView tapped")
+            showPopUp()
+            print("sender: ")
         }
+        
+        func showPopUp() {
+            
+            let alert = UIAlertController(title: "Would you like to take a photo or import a photo?", message: "", preferredStyle: .actionSheet)
+            
+            // alert actions
+            let action1 = UIAlertAction(title: "Take Photo", style: .default) { action in
+                takePhoto()
+            }
+            let action2 = UIAlertAction(title: "Import Photo", style: .default) { action in
+                importPhoto()
+            }
+            let action3 = UIAlertAction(title: "Cancel", style: .destructive)
+            
+            alert.addAction(action1)
+            alert.addAction(action2)
+            alert.addAction(action3)
+            present(alert, animated: true,completion: nil)
+        }
+        
+        func takePhoto() {
+            print("User chose to take photo")
+        }
+        
+        func importPhoto() {
+            print("User chose to import photo")
+        }
+        
     }
+    
 }
 
 // Stepper Logic

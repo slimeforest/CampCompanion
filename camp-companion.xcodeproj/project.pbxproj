@@ -16,6 +16,7 @@
 		C34775D7288F42E200E68579 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34775D5288F42E200E68579 /* LaunchScreen.storyboard */; };
 		C34DEB422891E24C002301FA /* ComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */; };
 		C34DEB442891E5C1002301FA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34DEB432891E5C1002301FA /* Component.swift */; };
+		C3A0618828AEE73900E8C3EC /* ImageTappedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A0618728AEE73900E8C3EC /* ImageTappedProtocol.swift */; };
 		C3A2F687289EF5E800EA3213 /* GearComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F686289EF5E800EA3213 /* GearComponentViewController.swift */; };
 		C3A2F689289EF97800EA3213 /* WeatherComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F688289EF97800EA3213 /* WeatherComponentViewController.swift */; };
 		C3A2F68B289EFD7200EA3213 /* CompassComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F68A289EFD7200EA3213 /* CompassComponentViewController.swift */; };
@@ -39,6 +40,7 @@
 		C34775D8288F42E200E68579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCollectionViewCell.swift; sourceTree = "<group>"; };
 		C34DEB432891E5C1002301FA /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		C3A0618728AEE73900E8C3EC /* ImageTappedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTappedProtocol.swift; sourceTree = "<group>"; };
 		C3A2F686289EF5E800EA3213 /* GearComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearComponentViewController.swift; sourceTree = "<group>"; };
 		C3A2F688289EF97800EA3213 /* WeatherComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherComponentViewController.swift; sourceTree = "<group>"; };
 		C3A2F68A289EFD7200EA3213 /* CompassComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassComponentViewController.swift; sourceTree = "<group>"; };
@@ -109,8 +111,10 @@
 		C3A2F697289F1D7A00EA3213 /* Gear Component Models */ = {
 			isa = PBXGroup;
 			children = (
-				C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */,
 				C3A2F695289F1C8D00EA3213 /* GearItem.swift */,
+				C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */,
+				C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */,
+				C3A0618728AEE73900E8C3EC /* ImageTappedProtocol.swift */,
 			);
 			path = "Gear Component Models";
 			sourceTree = "<group>";
@@ -137,7 +141,6 @@
 			children = (
 				C34DEB412891E24C002301FA /* ComponentCollectionViewCell.swift */,
 				C34DEB432891E5C1002301FA /* Component.swift */,
-				C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */,
 				C3A2F697289F1D7A00EA3213 /* Gear Component Models */,
 			);
 			path = Models;
@@ -221,6 +224,7 @@
 				C34775CC288F42DC00E68579 /* ViewController.swift in Sources */,
 				C3A2F68F289EFDBC00EA3213 /* MapsComponentViewController.swift in Sources */,
 				C34775C8288F42DC00E68579 /* AppDelegate.swift in Sources */,
+				C3A0618828AEE73900E8C3EC /* ImageTappedProtocol.swift in Sources */,
 				C34775CA288F42DC00E68579 /* SceneDelegate.swift in Sources */,
 				C3A2F696289F1C8D00EA3213 /* GearItem.swift in Sources */,
 				C3A2F689289EF97800EA3213 /* WeatherComponentViewController.swift in Sources */,

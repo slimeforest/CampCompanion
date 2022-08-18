@@ -15,9 +15,7 @@ class GearComponentTableViewCell: UITableViewCell {
     
     // Image
     @IBOutlet weak var itemImage: UIImageView!
-    @IBAction func imagePressed (_ sender: UIImageView!) {
-        print("ImageView Pressed.")
-    }
+    
     
     // Name
     @IBOutlet weak var itemName: UILabel!
@@ -28,7 +26,7 @@ class GearComponentTableViewCell: UITableViewCell {
     
     // Quanity
     @IBOutlet weak var itemQuanity: UILabel!
-    @IBAction func stepperPressed (_ sender: UIStepper!){
+    @IBAction func stepperPressed (_ sender: UIStepper!) {
         if (sender.value == 1) {
             sender.value = 0
             delegate?.stepperWasPressed(didIncrease: true, namePassed: itemName.text!, userindexPath: tableViewCellPosition)
