@@ -157,8 +157,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         cell.tableViewCellPosition = indexPath.row
         cell.delegate = self
         
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-        cell.itemImage.addGestureRecognizer(tapGR)
         cell.itemImage.isUserInteractionEnabled = true
         
         return cell
@@ -182,43 +180,39 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         return UISwipeActionsConfiguration(actions: [action])
     }
     
-    // Tapping on imageView
-    @objc func imageTapped(sender: UITapGestureRecognizer) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("User selected item: \(indexPath.row) and name is \(itemArray[indexPath.row].name)")
         
-        if sender.state == .ended {
-            showPopUp()
-            print("sender: ")
-        }
         
-        func showPopUp() {
-            
-            let alert = UIAlertController(title: "Would you like to take a photo or import a photo?", message: "", preferredStyle: .actionSheet)
-            
-            // alert actions
-            let action1 = UIAlertAction(title: "Take Photo", style: .default) { action in
-                takePhoto()
-            }
-            let action2 = UIAlertAction(title: "Import Photo", style: .default) { action in
-                importPhoto()
-            }
-            let action3 = UIAlertAction(title: "Cancel", style: .destructive)
-            
-            alert.addAction(action1)
-            alert.addAction(action2)
-            alert.addAction(action3)
-            present(alert, animated: true,completion: nil)
-        }
-        
-        func takePhoto() {
-            print("User chose to take photo")
-        }
-        
-        func importPhoto() {
-            print("User chose to import photo")
-        }
-        
+        showPopUp()
     }
     
+    // Pop up logic
+    func showPopUp() {
+        let alert = UIAlertController(title: "Would you like to take a photo or import a photo?", message: "", preferredStyle: .actionSheet)
+        
+        // alert actions
+        let action1 = UIAlertAction(title: "Take Photo", style: .default) { action in
+            self.takePhoto()
+        }
+        let action2 = UIAlertAction(title: "Import Photo", style: .default) { action in
+            self.importPhoto()
+        }
+        let action3 = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addAction(action1)
+        alert.addAction(action2)
+        alert.addAction(action3)
+        present(alert, animated: true,completion: nil)
+    }
+    
+    func takePhoto() {
+        print("User chose to take photo")
+    }
+    
+    func importPhoto() {
+        print("User chose to import photo")
+    }
 }
 
 // Stepper Logic
