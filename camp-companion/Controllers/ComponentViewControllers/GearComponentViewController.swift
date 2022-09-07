@@ -18,7 +18,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     var totalItems: Int = 0
     
     
-    var imageChosen = UIImage()
+    // IndexPath of the Tapped Cell
     var cellChosen = IndexPath()
     
     // Weight Label Outlets
@@ -26,7 +26,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var weight2LabelOutlet: UILabel!
     
     // Item Count Label Outlet
-    
     @IBOutlet weak var totalCountLabelOutlet: UILabel!
     
     // TableView Outlet
@@ -43,7 +42,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         gearTableView.dataSource = self
         gearTableView.delegate = self
         print("Gear Component View Controller successfully loaded.")
-        
         
         updateUI()
     }
@@ -121,12 +119,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
                let userItemQuanity = textFields[3].text,
                let userItemNotes = textFields[4].text {
                 
-                print("Name: \(userItemName)")
-                print("Item Weight 1: \(userItemWeight1)")
-                print("Item Weight 2: \(userItemWeight2)")
-                print("Item Quantity: \(userItemQuanity)")
-                print("Item Notes: \(userItemNotes)")
-                
                 let userSubmittedItem = GearItem(itemName: userItemName, itemImage: UIImage(systemName: "photo.on.rectangle.angled")!, itemWeight1: Int(userItemWeight1) ?? 0, itemWeight2: Int(userItemWeight2) ?? 0, itemQuantity: Int(userItemQuanity) ?? 1, itemNotes: userItemNotes ?? "")
                 
                 self.itemArray.append(userSubmittedItem)
@@ -185,9 +177,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("User selected item: \(indexPath.row) and name is \(itemArray[indexPath.row].name)")
-        
-        
         showPopUp(itemChosen: indexPath)
     }
     
@@ -217,9 +206,8 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     
     
     // Importing a photo
-    func importPhoto(position: IndexPath) {
-        print("User chose to import photo")
-        
+    
+    func importPhoto(position: IndexPath) {        
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
@@ -235,13 +223,11 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     
         dismiss(animated: true)
         
-        if let cell = tableView(gearTableView, cellForRowAt: cellChosen) as? GearComponentTableViewCell {
-            cell.itemImage.image = image
-            self.updateUI()
-            print("item image set for the item at position: \(cellChosen.row)")
-        }else {
-            print("did not set item image")
-        }
+        let item = itemArray[cellChosen.row]
+        let userSubmittedItem = GearItem(itemName: item.name, itemImage: image, itemWeight1: item.weight1, itemWeight2: item.weight2, itemQuantity: item.quantity, itemNotes: item.notes)
+        
+        itemArray[cellChosen.row] = userSubmittedItem
+        self.updateUI()
     }
 }
 

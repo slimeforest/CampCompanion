@@ -10,7 +10,6 @@ import UIKit
 class GearComponentTableViewCell: UITableViewCell {
     
     var delegate:Stepper?
-
     var tableViewCellPosition: Int! = nil
     
     // Image

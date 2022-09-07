@@ -393,6 +393,10 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lnY-mH-Jns">
                                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="130" id="0YC-AD-Kv6"/>
+                                                                        <constraint firstAttribute="width" constant="130" id="nZu-Dc-8ET"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-1" maximumValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dfM-e4-YnF">
                                                                     <rect key="frame" x="18" y="138" width="94" height="32"/>
@@ -402,8 +406,9 @@
                                                                 </stepper>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="lnY-mH-Jns" firstAttribute="top" secondItem="DwL-x3-bJ6" secondAttribute="top" id="LQG-ML-YCR"/>
+                                                                <constraint firstItem="lnY-mH-Jns" firstAttribute="top" secondItem="DwL-x3-bJ6" secondAttribute="top" priority="250" id="LQG-ML-YCR"/>
                                                                 <constraint firstItem="dfM-e4-YnF" firstAttribute="top" secondItem="lnY-mH-Jns" secondAttribute="bottom" constant="8" id="Rn4-tH-cAm"/>
+                                                                <constraint firstAttribute="bottom" secondItem="dfM-e4-YnF" secondAttribute="bottom" priority="250" id="vjH-jt-u76"/>
                                                                 <constraint firstItem="lnY-mH-Jns" firstAttribute="leading" secondItem="DwL-x3-bJ6" secondAttribute="leading" id="wa3-LF-jAB"/>
                                                                 <constraint firstAttribute="trailing" secondItem="lnY-mH-Jns" secondAttribute="trailing" id="xsv-0b-ohy"/>
                                                             </constraints>
@@ -515,7 +520,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be sure to drink 64 oz of water every day, and to eat lots of food." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMm-Hw-r4e">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be sure to drink 64 oz of water every day and to eat lots of food." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMm-Hw-r4e">
                                                                             <rect key="frame" x="0.0" y="38.000000000000007" width="108" height="89.666666666666686"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
@@ -527,8 +532,8 @@
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="DwL-x3-bJ6" firstAttribute="top" secondItem="eej-Gd-0Fb" secondAttribute="top" id="akg-t5-eIS"/>
-                                                        <constraint firstItem="qIv-tb-fae" firstAttribute="top" secondItem="eej-Gd-0Fb" secondAttribute="top" id="cbE-7o-uJi"/>
+                                                        <constraint firstItem="DwL-x3-bJ6" firstAttribute="top" secondItem="eej-Gd-0Fb" secondAttribute="top" priority="250" id="akg-t5-eIS"/>
+                                                        <constraint firstItem="qIv-tb-fae" firstAttribute="top" secondItem="eej-Gd-0Fb" secondAttribute="top" priority="250" id="cbE-7o-uJi"/>
                                                         <constraint firstItem="DwL-x3-bJ6" firstAttribute="leading" secondItem="eej-Gd-0Fb" secondAttribute="leading" id="ewA-3t-PGJ"/>
                                                     </constraints>
                                                 </stackView>
