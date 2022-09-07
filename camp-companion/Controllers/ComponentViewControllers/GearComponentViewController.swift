@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GearComponentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GearComponentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var arrayPosition: Int = 0
     
@@ -16,6 +16,10 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     var totalWeight1: Int = 0
     var totalWeight2: Int = 0
     var totalItems: Int = 0
+    
+    
+    var imageChosen = UIImage()
+    var cellChosen = IndexPath()
     
     // Weight Label Outlets
     @IBOutlet weak var weight1LabelOutlet: UILabel!
@@ -39,6 +43,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         gearTableView.dataSource = self
         gearTableView.delegate = self
         print("Gear Component View Controller successfully loaded.")
+        
         
         updateUI()
     }
@@ -158,7 +163,6 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         cell.delegate = self
         
         cell.itemImage.isUserInteractionEnabled = true
-        
         return cell
     }
     
@@ -184,19 +188,19 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         print("User selected item: \(indexPath.row) and name is \(itemArray[indexPath.row].name)")
         
         
-        showPopUp()
+        showPopUp(itemChosen: indexPath)
     }
     
     // Pop up logic
-    func showPopUp() {
-        let alert = UIAlertController(title: "Would you like to take a photo or import a photo?", message: "", preferredStyle: .actionSheet)
+    func showPopUp(itemChosen: IndexPath) {
+        let alert = UIAlertController(title: "Add Photo To Item", message: .none, preferredStyle: .actionSheet)
         
         // alert actions
         let action1 = UIAlertAction(title: "Take Photo", style: .default) { action in
             self.takePhoto()
         }
         let action2 = UIAlertAction(title: "Import Photo", style: .default) { action in
-            self.importPhoto()
+            self.importPhoto(position: itemChosen)
         }
         let action3 = UIAlertAction(title: "Cancel", style: .destructive)
         
@@ -210,8 +214,34 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         print("User chose to take photo")
     }
     
-    func importPhoto() {
+    
+    
+    // Importing a photo
+    func importPhoto(position: IndexPath) {
         print("User chose to import photo")
+        
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true) {
+            print("cell tapped \(position)")
+            self.cellChosen = position
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let image = info[.editedImage] as? UIImage else { return }
+    
+        dismiss(animated: true)
+        
+        if let cell = tableView(gearTableView, cellForRowAt: cellChosen) as? GearComponentTableViewCell {
+            cell.itemImage.image = image
+            self.updateUI()
+            print("item image set for the item at position: \(cellChosen.row)")
+        }else {
+            print("did not set item image")
+        }
     }
 }
 

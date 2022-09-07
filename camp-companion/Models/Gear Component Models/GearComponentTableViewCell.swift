@@ -16,7 +16,6 @@ class GearComponentTableViewCell: UITableViewCell {
     // Image
     @IBOutlet weak var itemImage: UIImageView!
     
-    
     // Name
     @IBOutlet weak var itemName: UILabel!
     
