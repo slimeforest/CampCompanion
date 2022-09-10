@@ -177,6 +177,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellChosen = indexPath
         showPopUp(itemChosen: indexPath)
     }
     
@@ -186,7 +187,7 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         
         // alert actions
         let action1 = UIAlertAction(title: "Take Photo", style: .default) { action in
-            self.takePhoto()
+            self.takePhoto(position: self.cellChosen)
         }
         let action2 = UIAlertAction(title: "Import Photo", style: .default) { action in
             self.importPhoto(position: itemChosen)
@@ -199,14 +200,21 @@ class GearComponentViewController: UIViewController, UITableViewDataSource, UITa
         present(alert, animated: true,completion: nil)
     }
     
-    func takePhoto() {
+    // Taking a photo
+    func takePhoto(position: IndexPath) {
         print("User chose to take photo")
+        
+        let camera = UIImagePickerController()
+        camera.sourceType = .camera
+        camera.allowsEditing = true
+        camera.delegate = self
+        present(camera, animated: true) {
+            print("cell tapped \(position)")
+            self.cellChosen = position
+        }
     }
     
-    
-    
     // Importing a photo
-    
     func importPhoto(position: IndexPath) {        
         let picker = UIImagePickerController()
         picker.allowsEditing = true
