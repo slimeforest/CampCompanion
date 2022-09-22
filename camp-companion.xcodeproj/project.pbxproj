@@ -25,6 +25,7 @@
 		C3A2F691289EFE0700EA3213 /* TestComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */; };
 		C3A2F694289F17D300EA3213 /* GearComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */; };
 		C3A2F696289F1C8D00EA3213 /* GearItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2F695289F1C8D00EA3213 /* GearItem.swift */; };
+		C3BBFA7628DD0C4900B5B459 /* GearItemCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BBFA7528DD0C4900B5B459 /* GearItemCD.swift */; };
 		C3C74AE0289F5DB900CF0B46 /* StepperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		C3A2F690289EFE0700EA3213 /* TestComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestComponentViewController.swift; sourceTree = "<group>"; };
 		C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearComponentTableViewCell.swift; sourceTree = "<group>"; };
 		C3A2F695289F1C8D00EA3213 /* GearItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearItem.swift; sourceTree = "<group>"; };
+		C3BBFA7528DD0C4900B5B459 /* GearItemCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearItemCD.swift; sourceTree = "<group>"; };
 		C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,11 +114,20 @@
 			isa = PBXGroup;
 			children = (
 				C3A2F695289F1C8D00EA3213 /* GearItem.swift */,
+				C3BBFA7028DD0AAB00B5B459 /* CoreData */,
 				C3A2F693289F17D200EA3213 /* GearComponentTableViewCell.swift */,
 				C3C74ADF289F5DB900CF0B46 /* StepperProtocol.swift */,
 				C3A0618728AEE73900E8C3EC /* ImageTappedProtocol.swift */,
 			);
 			path = "Gear Component Models";
+			sourceTree = "<group>";
+		};
+		C3BBFA7028DD0AAB00B5B459 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C3BBFA7528DD0C4900B5B459 /* GearItemCD.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C3E9A3B4288F47B800DF42B5 /* Views */ = {
@@ -225,6 +236,7 @@
 				C3A2F68F289EFDBC00EA3213 /* MapsComponentViewController.swift in Sources */,
 				C34775C8288F42DC00E68579 /* AppDelegate.swift in Sources */,
 				C3A0618828AEE73900E8C3EC /* ImageTappedProtocol.swift in Sources */,
+				C3BBFA7628DD0C4900B5B459 /* GearItemCD.swift in Sources */,
 				C34775CA288F42DC00E68579 /* SceneDelegate.swift in Sources */,
 				C3A2F696289F1C8D00EA3213 /* GearItem.swift in Sources */,
 				C3A2F689289EF97800EA3213 /* WeatherComponentViewController.swift in Sources */,

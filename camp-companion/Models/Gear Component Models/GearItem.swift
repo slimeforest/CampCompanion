@@ -5,8 +5,8 @@
 //  Created by Jack Battle on 8/6/22.
 //
 
-import Foundation
 import UIKit
+import CoreData
 
 class GearItem{
     let name: String
